@@ -1,4 +1,4 @@
-// Control Play Pause Functions
+// Control Play Pause Functions ..
 (function() {
     function SongPlayer() {
         var SongPlayer = {};
