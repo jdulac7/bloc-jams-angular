@@ -29,24 +29,43 @@
            currentSong = song;
         };
 
+        /*
+        @function playSong
+        @desc playSong Function to reduce code, play song, and change icon in album.html to play
+        @param {Object} song
+        */
+        var playSong = function(song) {
+          currentBuzzObject.play();
+          song.playing = true;
+        }
+
+        /*
+        @function pauseSong
+        @desc pause Song Function to reduce code, pause song, and change icon in album.html to pause
+        @param {Object} song
+        */
+        var pauseSong = function(song) {
+          currentBuzzObject.pause();
+          song.playing = false;
+        }
+
+
         // Play Current Song
         SongPlayer.play = function(song) {
           if (currentSong !== song) {
 
          setSong(song);
-         currentBuzzObject.play();
-         song.playing = true;
+         playSong(song);
+
     } else if (currentSong === song) {
           if (currentBuzzObject.isPaused()) {
-              currentBuzzObject.play();
-              song.playing = true;
+              playSong(song);
           }
     }
 };
       // Pause Current Song
       SongPlayer.pause = function(song) {
-      currentBuzzObject.pause();
-      song.playing = false;
+      pauseSong(song);
 };
 
         return SongPlayer;
