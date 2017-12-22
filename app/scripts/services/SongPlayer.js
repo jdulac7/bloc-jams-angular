@@ -61,8 +61,6 @@
           song.playing = false;
         }
 
-
-
         // Play Current Song
         SongPlayer.play = function(song) {
           song = song || SongPlayer.currentSong;
