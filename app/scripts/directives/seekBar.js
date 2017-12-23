@@ -26,15 +26,20 @@
 
 
              var percentString = function () {
-               var value = scope.value;
+                var value = scope.value;
                 var max = scope.max;
                 var percent = value / max * 100;
                 return percent + "%";
               };
-
+            //fills in seekbar depending on where song (event)  is at
             scope.fillStyle = function() {
               return {width: percentString()};
           };
+          //updates position of thumb
+          scope.thumbStyle = function() {
+            return {left: percentString()};
+          };
+
           //Updates the seek bar value based on the seek bar's
           //width and the location of the user's click on the seek bar.
             scope.onClickSeekBar = function(event) {
@@ -62,5 +67,5 @@
 
      angular
          .module('blocJams')
-         .directive('seekBar', ['$document', seekBar]);
+         . directive('seekBar', ['$document', seekBar]);
  })();
